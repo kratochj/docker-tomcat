@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Server>
+	<Listener className="org.apache.catalina.startup.VersionLoggerListener"/>
+	<Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="off"/>
+	<Listener className="org.apache.tomee.loader.listener.JMXServerListener" protocol="jmxmp" host="0.0.0.0" port="9875"/>
+
+	<Service name="Catalina">
+
+		<Connector port="8080" protocol="HTTP/1.1" URIEncoding="UTF-8"
+				   connectionTimeout="20000" asyncTimeout="60000"/>
+
+		<Engine name="Catalina" defaultHost="localhost">
+
+			<Host name="localhost" appBase="webapps" unpackWARs="false" autoDeploy="true" deployOnStartup="false" backgroundProcessorDelay="1">
+
+				<Valve className="org.apache.catalina.valves.RemoteIpValve"
+					   remoteIpHeader="X-Forwarded-For"
+					   protocolHeader="X-Forwarded-Proto"/>
+
+				<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+					   prefix="localhost_access_log" suffix=".txt"
+					   pattern="%h %l %u %t &quot;%r&quot; %s %b"/>
+			</Host>
+		</Engine>
+	</Service>
+</Server>
