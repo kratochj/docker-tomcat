@@ -1,6 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
--	[`8`, `latest`] (*8/Dockerfile*)(https://github.com/kratochj/docker-tomcat/releases/tag/8)
+-	[`8`, `latest`](*8/Dockerfile*)(https://github.com/kratochj/docker-tomcat/releases/tag/8)
 
 # What is Tomcat?
 
